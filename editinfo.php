@@ -80,13 +80,15 @@ if (isset($_POST['deleteaddr'])) {
     }
 ?>
 
-
 <?php
 if(isset($_POST['editpersonsinfo'])) {
 $id = $_SESSION['u_id'];
 $first = $_POST['firstinput'];
+$_SESSION['first'] = $first;
 $last = $_POST['lastinput'];
+$_SESSION['last'] = $last;
 $email = $_POST['emailinput'];
+$_SESSION['email'] = $email;
 $sql = "UPDATE users SET first='$first', last='$last', email='$email' WHERE users.user_id='$id'";
 $update = $conn->query($sql);
 header('account.php');
